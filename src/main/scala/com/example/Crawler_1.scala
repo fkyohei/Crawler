@@ -4,6 +4,10 @@ import org.jsoup._
 import collection.JavaConverters._
 import java.net.{URI, URLDecoder, URLEncoder}
 
+/**
+ * Crawler_1
+ * 指定URLをクロールして出力する
+ */
 object Crawler_1{
 
     def getSource(url: String): Unit = {

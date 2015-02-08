@@ -7,5 +7,5 @@ CREATE TABLE Company.CompanyInfo (
   `CompanyStar` varchar(3) default NULL,
   `CompanyArea` varchar(64) default NULL,
   `CompanyUrl` varchar(256) default NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8

@@ -10,10 +10,17 @@ object Crawler_1{
 
         val doc = Jsoup.connect(url).get
 
-        // 企業名とURLをセットで入れるリスト
-        var CompanyList: List[(String, String)] = Nil
-        // 企業名とURL用変数
+        // リスト[企業名, 詳細URL, スター, エリア, 企業URL]
+        var CompanyList: List[(String, String, String, String, String)] = Nil
+        // 企業名
         var CompanyName: String = null
+        // 詳細URL
+        var CompanyDetailUrl: String = null
+        // スター
+        var CompanyStar: String = null
+        // エリア
+        var CompanyArea: String = null
+        // 企業URL
         var CompanyUrl: String = null
 
         // 1企業分のhtmlをセットにして取得
@@ -23,16 +30,19 @@ object Crawler_1{
 
         CompanyIterator.foreach {
             value => {
-                CompanyName = value.select(".ttl .companyName h3 a").text
-                CompanyUrl = value.select(".ttl > .companyName > h3 > a").attr("href")
+                CompanyName = value.select(".ttl .companyName h3 a").text()
+                CompanyDetailUrl = value.select(".ttl .companyName h3 a").attr("href")
+                CompanyStar = value.select(".txt em").text()
+                CompanyArea = value.select(".txt .data .area").text()
+                CompanyUrl = value.select(".txt .data .url").text()
                 // タプルで値を持つリストとして後ろに追加
-                CompanyList = CompanyList :+ (CompanyName, CompanyUrl)
+                CompanyList = CompanyList :+ (CompanyName, CompanyDetailUrl, CompanyStar, CompanyArea, CompanyUrl)
             }
         }
 
         // 出力
         for( CompanyDetail <- CompanyList) {
-            println(CompanyDetail._1 +" : " +CompanyDetail._2)
+            println(CompanyDetail._1 + " : " +CompanyDetail._2 + " : " + CompanyDetail._3 + " : " + CompanyDetail._4 + " : " + CompanyDetail._5)
         }
     }
 

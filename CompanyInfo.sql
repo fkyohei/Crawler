@@ -23,7 +23,7 @@ CREATE TABLE Company.CompanyDetailInfo (
   `CompanyStar` varchar(3) default NULL,
   `CompanyArea` varchar(64) default NULL,
   `CompanyUrl` varchar(256) default NULL,
-  `PayLevelStar` varchar(256) default NULL,
+  `PayLevelStar` varchar(3) default NULL,
   `StabilityStar` varchar(3) default NULL,
   `GrowthStar` varchar(3) default NULL,
   `WorthwhileStar` varchar(3) default NULL,

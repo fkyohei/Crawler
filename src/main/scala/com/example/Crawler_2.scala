@@ -41,7 +41,7 @@ object Crawler_2{
                 CompanyIterator.foreach {
                     value => {
                         CompanyName = value.select(".ttl .companyName h3 a").text()
-                        CompanyDetailUrl = value.select(".ttl .companyName h3 a").attr("href")
+                        CompanyDetailUrl = value.select(".ttl .companyName h3 a").attr("abs:href")
                         CompanyStar = value.select(".txt em").text()
                         CompanyArea = value.select(".txt .data .area").text()
                         CompanyUrl = value.select(".txt .data .url").text()
